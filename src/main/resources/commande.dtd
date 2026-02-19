@@ -1,0 +1,11 @@
+<!ELEMENT commande (client, date, produits)>
+<!ELEMENT client (nom-client, email, ville)>
+<!ELEMENT nom-client (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT ville (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT produits (produit+)>
+<!ELEMENT produit (nom, prix, quantité)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT prix (#PCDATA)>
+<!ELEMENT quantité (#PCDATA)>

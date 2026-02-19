@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE commande SYSTEM "commande.dtd">
+<commande>
+    <client>
+        <nom-client>Durand</nom-client >
+        <email> durand @gmail.com </email>
+        <ville> Paris </ville>
+    </client>
+    <date>25-5-2022</date>
+    <produits>
+        <produit>
+            <nom>Clavier</nom>
+            <prix>20</prix>
+            <quantité>3</quantité>
+        </produit>
+        <produit>
+            <nom>Souris</nom>
+            <prix>10</prix>
+            <quantité>4</quantité>
+        </produit>
+        <produit>
+            <nom>Écran</nom>
+            <prix>100</prix>
+            <quantité>1</quantité>
+        </produit>
+    </produits>
+</commande>

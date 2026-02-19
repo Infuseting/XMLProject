@@ -1,0 +1,32 @@
+<produits>
+    <produit>
+        <nom>Clavier</nom>
+        <prix>10</prix>
+        <quantité>200</quantité>
+    </produit>
+    <produit>
+        <nom>Souris</nom>
+        <prix>5</prix>
+        <quantité>200</quantité>
+    </produit>
+    <produit>
+        <nom>Écran</nom>
+        <prix>50</prix>
+        <quantité>200</quantité>
+    </produit>
+    <produit>
+        <nom>Télévision</nom>
+        <prix>100</prix>
+        <quantité>200</quantité>
+    </produit>
+    <produit>
+        <nom>Frigo</nom>
+        <prix>100</prix>
+        <quantité>100</quantité>
+    </produit>
+    <produit>
+        <nom>Machine à laver</nom>
+        <prix>150</prix>
+        <quantité>100</quantité>
+    </produit>
+</produits>
