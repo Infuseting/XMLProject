@@ -10,9 +10,9 @@ import java.sql.*;
 
 public class ExportXML {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/mini_projet";
-    private static final String DB_USER = "root";
-    private static final String DB_PASS = "root";
+    private static final String DB_URL = App.db_url;
+    private static final String DB_USER = App.db_user;
+    private static final String DB_PASS = App.db_pass;
 
     public void genererExport() {
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {

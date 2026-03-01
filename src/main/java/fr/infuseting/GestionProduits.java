@@ -13,9 +13,9 @@ import java.util.List;
 
 public class GestionProduits {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/mini_projet?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    private static final String DB_USER = "root";
-    private static final String DB_PASS = "root";
+    private static final String DB_URL = App.db_url;
+    private static final String DB_USER = App.db_user;
+    private static final String DB_PASS = App.db_pass;
 
 
     public void importerProduits() {

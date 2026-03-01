@@ -14,9 +14,9 @@ import java.util.List;
 
 public class GestionCommandes {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/mini_projet";
-    private static final String DB_USER = "root";
-    private static final String DB_PASS = "root"; // Mot de passe défini dans Docker
+    private static final String DB_URL = App.db_url;
+    private static final String DB_USER = App.db_user;
+    private static final String DB_PASS = App.db_pass;
 
     public void traiterCommande() {
         SAXBuilder builder = new SAXBuilder(XMLReaders.DTDVALIDATING);
