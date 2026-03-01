@@ -8,12 +8,23 @@ import org.jdom2.output.XMLOutputter;
 import java.io.FileWriter;
 import java.sql.*;
 
+/**
+ * Gère l'extraction et la mise en forme des commandes sous format XML.
+ * Correspond à l'étape finale du processus métier (reporting, comptabilité, ou
+ * transmission vers un ERP/logiciel tiers).
+ */
 public class ExportXML {
 
     private static final String DB_URL = App.db_url;
     private static final String DB_USER = App.db_user;
     private static final String DB_PASS = App.db_pass;
 
+    /**
+     * Génère le fichier "export_commandes.xml" récapitulant les ventes.
+     * Logique applicative : Agréger des données tabulaires et relationnelles
+     * (Clients, Commandes, Lignes_Commande, Produits) en une structure hiérarchique
+     * arborescente (XML).
+     */
     public void genererExport() {
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
 
@@ -24,7 +35,7 @@ public class ExportXML {
                     "FROM Commandes c JOIN Clients cl ON c.id_client = cl.id";
 
             try (Statement stmtCmd = conn.createStatement();
-                 ResultSet rsCmd = stmtCmd.executeQuery(queryCommandes)) {
+                    ResultSet rsCmd = stmtCmd.executeQuery(queryCommandes)) {
 
                 while (rsCmd.next()) {
                     int idCommande = rsCmd.getInt("id");
@@ -54,8 +65,10 @@ public class ExportXML {
                         while (rsLignes.next()) {
                             Element produitElement = new Element("produit");
                             produitElement.addContent(new Element("nom").setText(rsLignes.getString("nom")));
-                            produitElement.addContent(new Element("prix").setText(String.valueOf(rsLignes.getDouble("prix_unitaire"))));
-                            produitElement.addContent(new Element("quantité").setText(String.valueOf(rsLignes.getInt("quantite"))));
+                            produitElement.addContent(
+                                    new Element("prix").setText(String.valueOf(rsLignes.getDouble("prix_unitaire"))));
+                            produitElement.addContent(
+                                    new Element("quantité").setText(String.valueOf(rsLignes.getInt("quantite"))));
                             produitsElement.addContent(produitElement);
                         }
                     }
@@ -81,7 +94,8 @@ public class ExportXML {
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, idCommande);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next()) return rs.getInt(1);
+            if (rs.next())
+                return rs.getInt(1);
         }
         return 0;
     }
